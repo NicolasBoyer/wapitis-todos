@@ -1,0 +1,36 @@
+{
+  "name": "wapitis-todos",
+  "version": "1.0.0",
+  "description": "Application todos pour tester wapitis",
+  "main": "src/../dist/electron.js",
+  "scripts": {
+    "init": "npx wapitis init",
+    "dev": "npx wapitis dev",
+    "prod": "npx wapitis prod",
+    "electronDev": "npx wapitis electron --dev",
+    "electronProd": "npx wapitis electron --prod",
+    "clear": "npx wapitis clear"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasBoyer/wapitis-todos.git"
+  },
+  "keywords": [
+    "test",
+    "todos",
+    "wapitis"
+  ],
+  "author": "Nicolas Boyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NicolasBoyer/wapitis-todos/issues"
+  },
+  "homepage": "https://github.com/NicolasBoyer/wapitis-todos#readme",
+  "devDependencies": {
+    "tslint": "^5.20.1",
+    "wapitis": "^2.0.32"
+  },
+  "dependencies": {
+    "electron-updater": "^4.2.0"
+  }
+}

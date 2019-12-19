@@ -1,0 +1,30 @@
+{
+  "srcPath": "src/",
+  "wwwPath": "src/www",
+  "distPath": "src/../dist",
+  "startFile": "app.tsx",
+  "electronStartFile": "electronStart.ts",
+  "appName": "wapitis-todos",
+  "appDesc": "Application todos pour tester wapitis",
+  "themeColor": "#317EFB",
+  "filesInfos": {
+    "mtime": {
+      "icons-192.png": "1985-10-26T08:15:00.000Z",
+      "icons-512.png": "1985-10-26T08:15:00.000Z",
+      "icons.svg": "2019-12-19T00:00:24.362Z",
+      "about.png": "1985-10-26T08:15:00.000Z",
+      "splash.png": "1985-10-26T08:15:00.000Z"
+    },
+    "update": [
+      "icons-192.png",
+      "icons-512.png",
+      "icons.svg",
+      "about.png",
+      "splash.png"
+    ]
+  },
+  "cacheVersion": {
+    "core": 1,
+    "images": 1
+  }
+}
