@@ -1,6 +1,9 @@
-import { Component, css, customElement, html, property } from 'wapitis'
+import { Component, css, customElement, html, property, UTILS } from 'wapitis'
 // On importe le composant
 import './todo'
+
+// Constantes
+const DATASKEY = 'wapitis-todosTest-datas'
 
 // Nous définissons notre custom element dans la directive suivante et la classe associée
 // w pour wapitis. il est obligatoire d'avoir "prefixe-nom" dans le nom d'un custom element
@@ -39,11 +42,18 @@ export default class TodoList extends Component<{}> {
 
     // Une propriété _todos est déclaré avec la directive @property.
     // Le préfixe _ permet à la propriété d'être obervable tout en étant considérée comme protected. Elle n'apparait ainsi pas dans les attributs de l'élément il n'y a donc pas de conversion
-    @property() _todos: Array<{ text: string; checked: boolean }> = []
+    @property() _todos: Array<{ text: string; checked: boolean }>
     // Une propriété input non observable et protected est déclarée pour pouvoir y accéder ci après
-    protected input: HTMLInputElement | null
+    protected _input: HTMLInputElement | null
+
+    constructor() {
+        super()
+        const wapitisTodosTestDatas: { todos: [] } = UTILS.load(DATASKEY)
+        this._todos = Object.keys(wapitisTodosTestDatas).length ? wapitisTodosTestDatas.todos : []
+    }
 
     render() {
+        UTILS.save(DATASKEY, { todos: this._todos })
         // On utilise ensuite le helper html afin de créer un template avec les événements et les variables observées à mettre à jour
         // @click correspond à addEventListener('click', this.addTodos)
         // La partie du template this._todos est mis à jour car il s'agit d'une propriété observable
@@ -65,14 +75,14 @@ export default class TodoList extends Component<{}> {
     }
 
     // On va chercher l'élément input
-    firstUpdated = () => this.input = this.shadowRoot!.querySelector('input')
+    firstUpdated = () => this._input = this.shadowRoot!.querySelector('input')
 
     // On ajoute à la propriété _todos la nouvelle tâche créée. C'est la methode render qui se charge de l'affichage lorsque _todos change
     protected _addTodo = (event: MouseEvent) => {
         event.preventDefault()
-        if (this.input!.value.length > 0) {
-            this._todos = [...this._todos, { text: this.input!.value, checked: false }]
-            this.input!.value = ''
+        if (this._input!.value.length > 0) {
+            this._todos = [...this._todos, { text: this._input!.value, checked: false }]
+            this._input!.value = ''
         }
     }
 

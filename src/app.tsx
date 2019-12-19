@@ -3,3 +3,4 @@ import TodoList from './components/todo-list'
 import './www/styles/main.css'
 
 document.body.appendChild(<TodoList></TodoList>)
+document.body.appendChild(<footer><div>Créé par Nicolas Boyer avec <a href='https://github.com/NicolasBoyer/wapitis'>Wapitis</a>.</div><div>© <strong>WAPITIS</strong>. Tous droits réservés.</div></footer>)
