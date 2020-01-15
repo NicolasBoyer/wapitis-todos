@@ -16,6 +16,7 @@ export default class TodoList extends Component<{}> {
             display: flex;
             flex-direction: column;
             align-items: center;
+            clear: both;
         }
         .title {
             font-size: 100px;
