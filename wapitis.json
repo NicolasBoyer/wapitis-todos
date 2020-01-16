@@ -11,13 +11,18 @@
     "mtime": {
       "icons-192.png": "1985-10-26T08:15:00.000Z",
       "icons-512.png": "1985-10-26T08:15:00.000Z",
-      "icons.svg": "2019-12-19T00:00:24.362Z",
+      "icons.svg": "2019-12-19T01:24:21.957Z",
       "about.png": "1985-10-26T08:15:00.000Z",
-      "splash.png": "1985-10-26T08:15:00.000Z"
-    }
+      "splash.png": "1985-10-26T08:15:00.000Z",
+      "apple-touch-icon.png": "1985-10-26T08:15:00.000Z"
+    },
+    "update": [
+      "apple-touch-icon.png"
+    ]
   },
   "cacheVersion": {
-    "core": 1,
-    "images": 1
-  }
+    "core": 3,
+    "images": 2
+  },
+  "appleTouchIcon": "./assets/icons/apple-touch-icon.png"
 }

@@ -28,7 +28,7 @@
   "homepage": "https://github.com/NicolasBoyer/wapitis-todos#readme",
   "devDependencies": {
     "tslint": "^5.20.1",
-    "wapitis": "^2.0.33"
+    "wapitis": "^2.0.41"
   },
   "dependencies": {
     "electron-updater": "^4.2.0"
