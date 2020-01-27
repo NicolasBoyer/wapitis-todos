@@ -2,15 +2,8 @@ import { Component, css, customElement, html, property, UTILS } from 'wapitis'
 // On importe les icons avec le fichier icons.svg
 import icons from '../www/assets/img/icons.svg'
 
-// On déclare les prporiétés puvliques obsevables. Ainsi si un constructor est déclarée on peut utiliser la forme new Todo({...}) pour créer la Todo. Et cela permet aux composants appelant d'avoir connaissances de ces propriétés
-interface IProps {
-    text: string
-    index: number
-    checked: boolean
-}
-
 @customElement('w-todo')
-export default class Todo extends Component<IProps> {
+export default class Todo extends Component {
     static get styles() {
         return css`
         :host {

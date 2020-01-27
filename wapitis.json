@@ -15,10 +15,7 @@
       "about.png": "1985-10-26T08:15:00.000Z",
       "splash.png": "1985-10-26T08:15:00.000Z",
       "apple-touch-icon.png": "1985-10-26T08:15:00.000Z"
-    },
-    "update": [
-      "apple-touch-icon.png"
-    ]
+    }
   },
   "cacheVersion": {
     "core": 3,

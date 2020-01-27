@@ -6,7 +6,7 @@ import './todo'
 // Nous définissons notre custom element dans la directive suivante et la classe associée
 // w pour wapitis. il est obligatoire d'avoir "prefixe-nom" dans le nom d'un custom element
 @customElement('w-todo-list')
-export default class TodoList extends Component<{}> {
+export default class TodoList extends Component {
     static get styles() {
         return css`
         :host {
