@@ -1,6 +1,6 @@
 {
   "name": "wapitis-todos",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Application todos pour tester wapitis",
   "main": "src/../dist/electron.js",
   "scripts": {
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/NicolasBoyer/wapitis-todos#readme",
   "devDependencies": {
     "tslint": "^6.0.0",
-    "wapitis": "^2.1.0"
+    "wapitis": "^2.1.5"
   },
   "dependencies": {
     "electron-updater": "^4.2.0"

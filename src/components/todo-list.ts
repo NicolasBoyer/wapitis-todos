@@ -41,7 +41,7 @@ export default class TodoList extends Component {
 
     // Une propriété _todos est déclaré avec la directive @property.
     // Le préfixe _ permet à la propriété d'être obervable tout en étant considérée comme protected. Elle n'apparait ainsi pas dans les attributs de l'élément il n'y a donc pas de conversion
-    @property() _todos: Array<{ text: string; checked: boolean }> = CONSTANT.DATAS.todos || []
+    @property() _todos: { text: string; checked: boolean }[] = CONSTANT.DATAS.todos || []
     // Une propriété input non observable et protected est déclarée pour pouvoir y accéder ci après
     protected _input: HTMLInputElement | null
 

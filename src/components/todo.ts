@@ -62,9 +62,9 @@ export default class Todo extends Component {
         `
     }
 
-    // On déclare les 3 propiétés observable en utilisant la directive @property. Comme il s'agit d'attribut, afin d'indiquer comment la conversion doit être faite entre l'attribut et la propriété, on indique le type pour index et checked, text étant un string il est inutile de l'indiquer. writeOnly est passé à true pour l'index afin qu'il n'apparaisse pas en tant qu'attribut html dans le dom
+    // On déclare les 3 propiétés observable en utilisant la directive @property. Comme il s'agit d'attribut, afin d'indiquer comment la conversion doit être faite entre l'attribut et la propriété, on indique le type pour index et checked, text étant un string il est inutile de l'indiquer. attribute est passé à false pour l'index afin qu'il n'apparaisse pas en tant qu'attribut html dans le dom
     @property() text: string
-    @property({ type: Number, writeOnly: true }) index: number
+    @property({ type: Number, attribute: false }) index: number
     @property({ type: Boolean }) checked: boolean = false
 
     render() {
