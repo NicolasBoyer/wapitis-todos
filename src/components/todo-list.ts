@@ -1,4 +1,5 @@
-import { Component, css, customElement, html, property, UTILS } from 'wapitis'
+import { Component, css, customElement, html, property, UTILS, TemplateResult } from 'wapitis'
+import { CSSResult } from 'wapitis/library/css'
 import { CONSTANT } from '../helpers/globals'
 // On importe le composant
 import './todo'
@@ -7,7 +8,7 @@ import './todo'
 // w pour wapitis. il est obligatoire d'avoir "prefixe-nom" dans le nom d'un custom element
 @customElement('w-todo-list')
 export default class TodoList extends Component {
-    static get styles() {
+    static get styles(): CSSResult {
         return css`
         :host {
             font-family: Arial, Helvetica, sans-serif;
@@ -41,11 +42,11 @@ export default class TodoList extends Component {
 
     // Une propriété _todos est déclaré avec la directive @property.
     // Le préfixe _ permet à la propriété d'être obervable tout en étant considérée comme protected. Elle n'apparait ainsi pas dans les attributs de l'élément il n'y a donc pas de conversion
-    @property() _todos: { text: string; checked: boolean }[] = CONSTANT.DATAS.todos || []
+    @property() _todos: { text: string, checked: boolean }[] = CONSTANT.DATAS.todos || []
     // Une propriété input non observable et protected est déclarée pour pouvoir y accéder ci après
     protected _input: HTMLInputElement | null
 
-    render() {
+    render(): TemplateResult {
         CONSTANT.DATAS.todos = this._todos
         UTILS.save(CONSTANT.DATASKEY, CONSTANT.DATAS)
         // On utilise ensuite le helper html afin de créer un template avec les événements et les variables observées à mettre à jour
@@ -69,20 +70,26 @@ export default class TodoList extends Component {
     }
 
     // On va chercher l'élément input
-    firstUpdated = () => this._input = this.shadowRoot!.querySelector('input')
+    firstUpdated = (): void => {
+        this._input = this.shadowRoot?.querySelector('input') as HTMLInputElement
+    }
 
     // On ajoute à la propriété _todos la nouvelle tâche créée. C'est la methode render qui se charge de l'affichage lorsque _todos change
-    protected _addTodo = (event: MouseEvent) => {
+    protected _addTodo = (event: MouseEvent): void => {
         event.preventDefault()
-        if (this._input!.value.length > 0) {
-            this._todos = [...this._todos, { text: this._input!.value, checked: false }]
-            this._input!.value = ''
+        if (this._input && this._input.value.length > 0) {
+            this._todos = [...this._todos, { text: this._input.value, checked: false }]
+            this._input.value = ''
         }
     }
 
     // On supprime l'index demandé en filtrant le tableau existant grâce à l'index. La mise à jour du tableau permettra à la methode render de remplacer les élément nécessaires dans le template
-    protected _removeTodo = (event: CustomEvent) => this._todos = this._todos.filter((_todo, _index) => _index !== event.detail.index)
+    protected _removeTodo = (event: CustomEvent): void => {
+        this._todos = this._todos.filter((_todo, _index) => _index !== event.detail.index)
+    }
 
     // On remplace dans le tableau la propriété checked par la valeur renvoyée grâce à l'index. La mise à jour du tableau permettra à la methode render de remplacer les élément nécessaires dans le template
-    protected _toggleTodo = (event: CustomEvent) => this._todos = this._todos.map((_todo, _index) => _index === event.detail.index ? { ..._todo, checked: !_todo.checked } : _todo)
+    protected _toggleTodo = (event: CustomEvent): void => {
+        this._todos = this._todos.map((_todo, _index) => _index === event.detail.index ? { ..._todo, checked: !_todo.checked } : _todo)
+    }
 }

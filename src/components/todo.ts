@@ -1,10 +1,11 @@
-import { Component, css, customElement, html, property, UTILS } from 'wapitis'
+import { Component, css, customElement, html, property, UTILS, TemplateResult } from 'wapitis'
+import { CSSResult } from 'wapitis/library/css'
 // On importe les icons avec le fichier icons.svg
 import icons from '../www/assets/img/icons.svg'
 
 @customElement('w-todo')
 export default class Todo extends Component {
-    static get styles() {
+    static get styles(): CSSResult {
         return css`
         :host {
             display: flex;
@@ -65,9 +66,9 @@ export default class Todo extends Component {
     // On déclare les 3 propiétés observable en utilisant la directive @property. Comme il s'agit d'attribut, afin d'indiquer comment la conversion doit être faite entre l'attribut et la propriété, on indique le type pour index et checked, text étant un string il est inutile de l'indiquer. attribute est passé à false pour l'index afin qu'il n'apparaisse pas en tant qu'attribut html dans le dom
     @property() text: string
     @property({ attribute: false }) index: number
-    @property({ type: Boolean }) checked: boolean = false
+    @property({ type: Boolean }) checked = false
 
-    render() {
+    render(): TemplateResult {
         // https://lit-html.polymer-project.org/guide/template-reference
         // On utilise .checked pour indiquer qu'on utilisera une valeur true ou false pour l'attribut html checked de l'input dans le DOM
         // Un custom event est utilisé pour préciser aux autres composants que la tâche est complétée ou supprimée (cf todo-list pour voir comment cela est traité)
@@ -85,5 +86,5 @@ export default class Todo extends Component {
 
     // Une fonction générique est créée pour envoyer le custom event
     // On utilise ici une des méthodes disponibles dans la librairie UTILS : dispatchEvent permettant d'envoyer un custom event
-    protected _fireEvent = (name: string) => UTILS.dispatchEvent(name, { index: this.index }, this)
+    protected _fireEvent = (name: string): void => UTILS.dispatchEvent(name, { index: this.index }, this)
 }
