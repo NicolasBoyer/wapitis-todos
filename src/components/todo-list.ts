@@ -70,7 +70,7 @@ export default class TodoList extends Component {
     }
 
     // On va chercher l'élément input
-    firstUpdated = (): void => {
+    firstUpdated(): void {
         this._input = this.shadowRoot?.querySelector('input') as HTMLInputElement
     }
 
