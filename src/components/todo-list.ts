@@ -42,13 +42,13 @@ export default class TodoList extends Component {
 
     // Une propriété _todos est déclaré avec la directive @property.
     // Le préfixe _ permet à la propriété d'être obervable tout en étant considérée comme protected. Elle n'apparait ainsi pas dans les attributs de l'élément il n'y a donc pas de conversion
-    @property() _todos: { text: string, checked: boolean }[] = CONSTANT.DATAS.todos || []
+    @property() _todos: { text: string, checked: boolean }[] = (CONSTANT.DATAS as Record<string, unknown>).todos as { text: string, checked: boolean }[] || []
     // Une propriété input non observable et protected est déclarée pour pouvoir y accéder ci après
     protected _input: HTMLInputElement | null
 
     render(): TemplateResult {
-        CONSTANT.DATAS.todos = this._todos
-        UTILS.save(CONSTANT.DATASKEY, CONSTANT.DATAS)
+        (CONSTANT.DATAS as Record<string, unknown>).todos = this._todos
+        UTILS.save(CONSTANT.DATASKEY as string, CONSTANT.DATAS)
         // On utilise ensuite le helper html afin de créer un template avec les événements et les variables observées à mettre à jour
         // @click correspond à addEventListener('click', this.addTodos)
         // La partie du template this._todos est mis à jour car il s'agit d'une propriété observable
@@ -85,11 +85,11 @@ export default class TodoList extends Component {
 
     // On supprime l'index demandé en filtrant le tableau existant grâce à l'index. La mise à jour du tableau permettra à la methode render de remplacer les élément nécessaires dans le template
     protected _removeTodo = (event: CustomEvent): void => {
-        this._todos = this._todos.filter((_todo, _index) => _index !== event.detail.index)
+        this._todos = this._todos.filter((_todo, _index) => _index !== (event.detail as Record<string, unknown>).index)
     }
 
     // On remplace dans le tableau la propriété checked par la valeur renvoyée grâce à l'index. La mise à jour du tableau permettra à la methode render de remplacer les élément nécessaires dans le template
     protected _toggleTodo = (event: CustomEvent): void => {
-        this._todos = this._todos.map((_todo, _index) => _index === event.detail.index ? { ..._todo, checked: !_todo.checked } : _todo)
+        this._todos = this._todos.map((_todo, _index) => _index === (event.detail as Record<string, unknown>).index ? { ..._todo, checked: !_todo.checked } : _todo)
     }
 }

@@ -52,17 +52,21 @@
             {
                 "selector": "typeLike",
                 "format": ["PascalCase"]
+            },
+            {
+                "selector": "interface",
+                "format": ["PascalCase"],
+                "custom": {
+                    "regex": "^I[A-Z]",
+                    "match": true
+                }
             }
         ],
         "max-len": 0,
         "symbol-description": 0,
         "no-prototype-builtins": 0,
-        "no-mixed-operators": 0,
         "no-return-assign": 0,
         "@typescript-eslint/explicit-member-accessibility": "off",
-        "@typescript-eslint/interface-name-prefix": ["error", {
-            "prefixWithI": "always"
-        }],
         "@typescript-eslint/member-delimiter-style": ["error", {
             "multiline": {
                 "delimiter": "none"

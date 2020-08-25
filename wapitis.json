@@ -21,5 +21,6 @@
     "core": 3,
     "images": 2
   },
-  "appleTouchIcon": "./assets/icons/apple-touch-icon.png"
+  "appleTouchIcon": "./assets/icons/apple-touch-icon.png",
+  "appId": "fr.wapitis.wapitistodos"
 }
