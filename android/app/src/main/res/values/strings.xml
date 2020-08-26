@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">wapitis-todos</string>
+    <string name="title_activity_main">wapitis-todos</string>
+    <string name="package_name">fr.wapitis.wapitistodos</string>
+    <string name="custom_url_scheme">fr.wapitis.wapitistodos</string>
+</resources>

@@ -39,6 +39,7 @@
     "wapitis": "^2.1.39"
   },
   "dependencies": {
+    "@capacitor/android": "^2.4.0",
     "electron-updater": "^4.3.4"
   }
 }

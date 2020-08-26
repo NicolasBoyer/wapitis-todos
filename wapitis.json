@@ -4,7 +4,7 @@
   "distPath": "src/../dist",
   "startFile": "app.tsx",
   "electronStartFile": "electronStart.ts",
-  "appName": "wapitis-todos",
+  "appName": "wapitistodos",
   "appDesc": "Application todos pour tester wapitis",
   "themeColor": "#317EFB",
   "filesInfos": {
